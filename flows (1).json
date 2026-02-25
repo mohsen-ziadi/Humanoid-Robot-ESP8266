@@ -1,5 +1,2182 @@
 [
     {
+        "id": "a973116907fa6ae1",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "174f7bb68d15fb1f",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "2a5c09361705d59c",
+        "type": "mqtt-broker",
+        "name": "Test Broker",
+        "broker": "test.mosquitto.org",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "1a60eabccaeb2cdd",
+        "type": "mqtt-broker",
+        "name": "broker.mqttdashboard",
+        "broker": "broker.mqttdashboard.com",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "9f506332cfdcfdc2",
+        "type": "ui_tab",
+        "name": "Main  dashboard",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "04ac59948c1d9a64",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "28f11ba2d36f5bdb",
+        "type": "mqtt-broker",
+        "name": "Automation",
+        "broker": "https://test.mosquitto.org/",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "f7e30890d3f554a8",
+        "type": "modbus-client",
+        "name": "mohsen-esp32",
+        "clienttype": "tcp",
+        "bufferCommands": true,
+        "stateLogEnabled": false,
+        "queueLogEnabled": false,
+        "failureLogEnabled": true,
+        "tcpHost": "10.192.191.82",
+        "tcpPort": 502,
+        "tcpType": "DEFAULT",
+        "serialPort": "/dev/ttyUSB",
+        "serialType": "RTU-BUFFERD",
+        "serialBaudrate": 9600,
+        "serialDatabits": 8,
+        "serialStopbits": 1,
+        "serialParity": "none",
+        "serialConnectionDelay": 100,
+        "serialAsciiResponseStartDelimiter": "0x3A",
+        "unit_id": 1,
+        "commandDelay": 1,
+        "clientTimeout": "500",
+        "reconnectOnTimeout": true,
+        "reconnectTimeout": 2000,
+        "parallelUnitIdsAllowed": true,
+        "showErrors": false,
+        "showWarnings": true,
+        "showLogs": true
+    },
+    {
+        "id": "60fbbd67359d5a60",
+        "type": "modbus-client",
+        "name": "",
+        "clienttype": "tcp",
+        "bufferCommands": true,
+        "stateLogEnabled": false,
+        "queueLogEnabled": false,
+        "failureLogEnabled": true,
+        "tcpHost": "127.0.0.1",
+        "tcpPort": "502",
+        "tcpType": "DEFAULT",
+        "serialPort": "/dev/ttyUSB",
+        "serialType": "RTU-BUFFERD",
+        "serialBaudrate": 9600,
+        "serialDatabits": 8,
+        "serialStopbits": 1,
+        "serialParity": "none",
+        "serialConnectionDelay": 100,
+        "serialAsciiResponseStartDelimiter": "0x3A",
+        "unit_id": 1,
+        "commandDelay": 1,
+        "clientTimeout": 3000,
+        "reconnectOnTimeout": true,
+        "reconnectTimeout": 1000,
+        "parallelUnitIdsAllowed": true,
+        "showErrors": false,
+        "showWarnings": true,
+        "showLogs": true
+    },
+    {
+        "id": "e9e1f34d40e6a0f2",
+        "type": "modbus-client",
+        "name": "ESP32 Test",
+        "clienttype": "tcp",
+        "bufferCommands": true,
+        "stateLogEnabled": false,
+        "queueLogEnabled": false,
+        "failureLogEnabled": true,
+        "tcpHost": "10.192.191.82",
+        "tcpPort": 502,
+        "tcpType": "DEFAULT",
+        "serialPort": "/dev/ttyUSB",
+        "serialType": "RTU-BUFFERD",
+        "serialBaudrate": 9600,
+        "serialDatabits": 8,
+        "serialStopbits": 1,
+        "serialParity": "none",
+        "serialConnectionDelay": 100,
+        "serialAsciiResponseStartDelimiter": "0x3A",
+        "unit_id": 1,
+        "commandDelay": 1,
+        "clientTimeout": 1000,
+        "reconnectOnTimeout": true,
+        "reconnectTimeout": 2000,
+        "parallelUnitIdsAllowed": true,
+        "showErrors": false,
+        "showWarnings": true,
+        "showLogs": true
+    },
+    {
+        "id": "d46c10aa3b295346",
+        "type": "ui_group",
+        "name": "Servo motors",
+        "tab": "9f506332cfdcfdc2",
+        "order": 1,
+        "disp": true,
+        "width": "4",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "group_servo0",
+        "type": "ui_group",
+        "name": "Servo 0 Control",
+        "tab": "",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "e20dceaedef63c60",
+        "type": "ui_group",
+        "name": "Multi movements",
+        "tab": "9f506332cfdcfdc2",
+        "order": 2,
+        "disp": true,
+        "width": "8",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ui_servo0_input",
+        "type": "ui_text_input",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "label": "Servo 0 ",
+        "tooltip": "",
+        "group": "d46c10aa3b295346",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "0",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 400,
+        "y": 140,
+        "wires": [
+            [
+                "tcp_sender"
+            ]
+        ]
+    },
+    {
+        "id": "func_calc_0",
+        "type": "function",
+        "z": "a973116907fa6ae1",
+        "name": "Calc Servo 0",
+        "func": "// ذخیره مقدار فعلی در متغیر گلوبال\nvar current = context.get('s0') || 118;\nvar change = msg.payload;\n\ncurrent = current + change;\n\n// محدودیت بازه\nif(current > 200) current = 200;\nif(current < 0) current = 0;\n\ncontext.set('s0', current);\n\nmsg.payload = current;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 100,
+        "wires": [
+            [
+                "ui_servo0_input",
+                "tcp_sender"
+            ]
+        ]
+    },
+    {
+        "id": "tcp_out_node",
+        "type": "tcp request",
+        "z": "a973116907fa6ae1",
+        "name": "Send to Robot",
+        "server": "10.137.207.185",
+        "port": "8888",
+        "out": "time",
+        "ret": "buffer",
+        "splitc": "0",
+        "newline": "",
+        "trim": false,
+        "tls": "",
+        "x": 1200,
+        "y": 1240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ui_servo0_up",
+        "type": "ui_button",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "group": "d46c10aa3b295346",
+        "order": 2,
+        "width": "2",
+        "height": 1,
+        "passthru": false,
+        "label": "Increase",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "green",
+        "className": "",
+        "icon": "fa-plus",
+        "payload": "5",
+        "payloadType": "num",
+        "topic": "0",
+        "topicType": "str",
+        "x": 190,
+        "y": 100,
+        "wires": [
+            [
+                "func_calc_0"
+            ]
+        ]
+    },
+    {
+        "id": "ui_servo0_down",
+        "type": "ui_button",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "group": "d46c10aa3b295346",
+        "order": 3,
+        "width": "2",
+        "height": 1,
+        "passthru": false,
+        "label": "Decrease",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "red",
+        "className": "",
+        "icon": "fa-minus",
+        "payload": "-5",
+        "payloadType": "num",
+        "topic": "0",
+        "topicType": "str",
+        "x": 200,
+        "y": 180,
+        "wires": [
+            [
+                "func_calc_0"
+            ]
+        ]
+    },
+    {
+        "id": "52bdf55bcb883287",
+        "type": "ui_text_input",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "label": "Servo 2",
+        "tooltip": "",
+        "group": "d46c10aa3b295346",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "2",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 400,
+        "y": 380,
+        "wires": [
+            [
+                "54d5b11075b420b2"
+            ]
+        ]
+    },
+    {
+        "id": "5da589d5760f1358",
+        "type": "function",
+        "z": "a973116907fa6ae1",
+        "name": "Calc Servo 2",
+        "func": "// ذخیره مقدار فعلی در متغیر گلوبال\nvar current = context.get('s2') || 160;\nvar change = msg.payload;\n\ncurrent = current + change;\n\n// محدودیت بازه\nif(current > 254) current = 254;\nif(current < 134) current = 134;\n\ncontext.set('s2', current);\n\nmsg.payload = current;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 340,
+        "wires": [
+            [
+                "52bdf55bcb883287",
+                "54d5b11075b420b2"
+            ]
+        ]
+    },
+    {
+        "id": "54d5b11075b420b2",
+        "type": "function",
+        "z": "a973116907fa6ae1",
+        "name": "Format Command",
+        "func": "// msg.topic باید شناسه سروو باشد (مثلا 0)\n// msg.payload زاویه جدید است\n\nvar id = 2;\nvar angle = msg.payload;\n\n// ساخت فرمت ID:ANGLE\nmsg.payload = id + \":\" + angle + \"\\n\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 460,
+        "wires": [
+            [
+                "tcp_out_node"
+            ]
+        ]
+    },
+    {
+        "id": "aa04f8557576d953",
+        "type": "ui_button",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "group": "d46c10aa3b295346",
+        "order": 5,
+        "width": "2",
+        "height": 1,
+        "passthru": false,
+        "label": "Increase",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "green",
+        "className": "",
+        "icon": "fa-plus",
+        "payload": "5",
+        "payloadType": "num",
+        "topic": "0",
+        "topicType": "str",
+        "x": 190,
+        "y": 340,
+        "wires": [
+            [
+                "5da589d5760f1358"
+            ]
+        ]
+    },
+    {
+        "id": "7e5f0614aefa7929",
+        "type": "ui_button",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "group": "d46c10aa3b295346",
+        "order": 6,
+        "width": "2",
+        "height": 1,
+        "passthru": false,
+        "label": "Decrease",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "red",
+        "className": "",
+        "icon": "fa-minus",
+        "payload": "-5",
+        "payloadType": "num",
+        "topic": "0",
+        "topicType": "str",
+        "x": 200,
+        "y": 420,
+        "wires": [
+            [
+                "5da589d5760f1358"
+            ]
+        ]
+    },
+    {
+        "id": "bc29860b8ea83c47",
+        "type": "ui_text_input",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "label": "Servo 3",
+        "tooltip": "",
+        "group": "d46c10aa3b295346",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "3",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 420,
+        "y": 580,
+        "wires": [
+            [
+                "33649e147b667257"
+            ]
+        ]
+    },
+    {
+        "id": "07d0852f3f3a82d7",
+        "type": "function",
+        "z": "a973116907fa6ae1",
+        "name": "Calc Servo 3",
+        "func": "// ذخیره مقدار فعلی در متغیر گلوبال\nvar current = context.get('s3') || 63;\nvar change = msg.payload;\n\ncurrent = current + change;\n\n// محدودیت بازه\nif(current > 120) current = 120;\nif(current < 40) current = 40;\n\ncontext.set('s3', current);\n\nmsg.payload = current;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 540,
+        "wires": [
+            [
+                "bc29860b8ea83c47",
+                "33649e147b667257"
+            ]
+        ]
+    },
+    {
+        "id": "33649e147b667257",
+        "type": "function",
+        "z": "a973116907fa6ae1",
+        "name": "Format Command",
+        "func": "// msg.topic باید شناسه سروو باشد (مثلا 0)\n// msg.payload زاویه جدید است\n\nvar id = 3;\nvar angle = msg.payload;\n\n// ساخت فرمت ID:ANGLE\nmsg.payload = id + \":\" + angle + \"\\n\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 660,
+        "wires": [
+            [
+                "tcp_out_node"
+            ]
+        ]
+    },
+    {
+        "id": "c03ef5b99198a50a",
+        "type": "ui_button",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "group": "d46c10aa3b295346",
+        "order": 8,
+        "width": "2",
+        "height": 1,
+        "passthru": false,
+        "label": "Increase",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "green",
+        "className": "",
+        "icon": "fa-plus",
+        "payload": "5",
+        "payloadType": "num",
+        "topic": "0",
+        "topicType": "str",
+        "x": 210,
+        "y": 540,
+        "wires": [
+            [
+                "07d0852f3f3a82d7"
+            ]
+        ]
+    },
+    {
+        "id": "f180ac13bf5091a5",
+        "type": "ui_button",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "group": "d46c10aa3b295346",
+        "order": 9,
+        "width": "2",
+        "height": 1,
+        "passthru": false,
+        "label": "Decrease",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "red",
+        "className": "",
+        "icon": "fa-minus",
+        "payload": "-5",
+        "payloadType": "num",
+        "topic": "0",
+        "topicType": "str",
+        "x": 220,
+        "y": 620,
+        "wires": [
+            [
+                "07d0852f3f3a82d7"
+            ]
+        ]
+    },
+    {
+        "id": "6be6c93a33ff8eb1",
+        "type": "ui_text_input",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "label": "Servo 4",
+        "tooltip": "",
+        "group": "d46c10aa3b295346",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "4",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 420,
+        "y": 760,
+        "wires": [
+            [
+                "dea665b47c15dcd2"
+            ]
+        ]
+    },
+    {
+        "id": "f0d9daf3e4730e87",
+        "type": "function",
+        "z": "a973116907fa6ae1",
+        "name": "Calc Servo 4",
+        "func": "// ذخیره مقدار فعلی در متغیر گلوبال\nvar current = context.get('s4') || 100;\nvar change = msg.payload;\n\ncurrent = current + change;\n\n// محدودیت بازه\nif(current > 180) current = 180;\nif(current < 40) current = 40;\n\ncontext.set('s4', current);\n\nmsg.payload = current;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 720,
+        "wires": [
+            [
+                "6be6c93a33ff8eb1",
+                "dea665b47c15dcd2"
+            ]
+        ]
+    },
+    {
+        "id": "dea665b47c15dcd2",
+        "type": "function",
+        "z": "a973116907fa6ae1",
+        "name": "Format Command",
+        "func": "// msg.topic باید شناسه سروو باشد (مثلا 0)\n// msg.payload زاویه جدید است\n\nvar id = 4;\nvar angle = msg.payload;\n\n// ساخت فرمت ID:ANGLE\nmsg.payload = id + \":\" + angle + \"\\n\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 840,
+        "wires": [
+            [
+                "tcp_out_node"
+            ]
+        ]
+    },
+    {
+        "id": "57a6165178b7b421",
+        "type": "ui_button",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "group": "d46c10aa3b295346",
+        "order": 11,
+        "width": "2",
+        "height": 1,
+        "passthru": false,
+        "label": "Increase",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "green",
+        "className": "",
+        "icon": "fa-plus",
+        "payload": "5",
+        "payloadType": "num",
+        "topic": "0",
+        "topicType": "str",
+        "x": 210,
+        "y": 720,
+        "wires": [
+            [
+                "f0d9daf3e4730e87"
+            ]
+        ]
+    },
+    {
+        "id": "9fde79dcad39e590",
+        "type": "ui_button",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "group": "d46c10aa3b295346",
+        "order": 12,
+        "width": "2",
+        "height": 1,
+        "passthru": false,
+        "label": "Decrease",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "red",
+        "className": "",
+        "icon": "fa-minus",
+        "payload": "-5",
+        "payloadType": "num",
+        "topic": "0",
+        "topicType": "str",
+        "x": 220,
+        "y": 800,
+        "wires": [
+            [
+                "f0d9daf3e4730e87"
+            ]
+        ]
+    },
+    {
+        "id": "tcp_sender",
+        "type": "function",
+        "z": "a973116907fa6ae1",
+        "name": "Format Command",
+        "func": "// msg.topic باید شناسه سروو باشد (مثلا 0)\n// msg.payload زاویه جدید است\n\nvar id = 0;\nvar angle = msg.payload;\n\n// ساخت فرمت ID:ANGLE\nmsg.payload = id + \":\" + angle + \"\\n\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 220,
+        "wires": [
+            [
+                "tcp_out_node"
+            ]
+        ]
+    },
+    {
+        "id": "09a954e095e3086e",
+        "type": "ui_text_input",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "label": "Servo 5",
+        "tooltip": "",
+        "group": "d46c10aa3b295346",
+        "order": 13,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "5",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 420,
+        "y": 940,
+        "wires": [
+            [
+                "e7c83b7de4099193"
+            ]
+        ]
+    },
+    {
+        "id": "9d8389e505ac0438",
+        "type": "function",
+        "z": "a973116907fa6ae1",
+        "name": "Calc Servo 5",
+        "func": "// ذخیره مقدار فعلی در متغیر گلوبال\nvar current = context.get('s5') || 122;\nvar change = msg.payload;\n\ncurrent = current + change;\n\n// محدودیت بازه\nif(current > 254) current = 254;\nif(current < 80) current = 80;\n\ncontext.set('s5', current);\n\nmsg.payload = current;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 900,
+        "wires": [
+            [
+                "09a954e095e3086e",
+                "e7c83b7de4099193"
+            ]
+        ]
+    },
+    {
+        "id": "e7c83b7de4099193",
+        "type": "function",
+        "z": "a973116907fa6ae1",
+        "name": "Format Command",
+        "func": "// msg.topic باید شناسه سروو باشد (مثلا 0)\n// msg.payload زاویه جدید است\n\nvar id = 5;\nvar angle = msg.payload;\n\n// ساخت فرمت ID:ANGLE\nmsg.payload = id + \":\" + angle + \"\\n\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 1020,
+        "wires": [
+            [
+                "tcp_out_node"
+            ]
+        ]
+    },
+    {
+        "id": "a0e8660c7f25d8af",
+        "type": "ui_button",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "group": "d46c10aa3b295346",
+        "order": 14,
+        "width": "2",
+        "height": 1,
+        "passthru": false,
+        "label": "Increase",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "green",
+        "className": "",
+        "icon": "fa-plus",
+        "payload": "5",
+        "payloadType": "num",
+        "topic": "0",
+        "topicType": "str",
+        "x": 210,
+        "y": 900,
+        "wires": [
+            [
+                "9d8389e505ac0438"
+            ]
+        ]
+    },
+    {
+        "id": "083e5ac96aeeae25",
+        "type": "ui_button",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "group": "d46c10aa3b295346",
+        "order": 15,
+        "width": "2",
+        "height": 1,
+        "passthru": false,
+        "label": "Decrease",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "red",
+        "className": "",
+        "icon": "fa-minus",
+        "payload": "-5",
+        "payloadType": "num",
+        "topic": "0",
+        "topicType": "str",
+        "x": 200,
+        "y": 980,
+        "wires": [
+            [
+                "9d8389e505ac0438"
+            ]
+        ]
+    },
+    {
+        "id": "c0522a54ac09ac60",
+        "type": "ui_text_input",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "label": "Servo 6",
+        "tooltip": "",
+        "group": "d46c10aa3b295346",
+        "order": 16,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "6",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 420,
+        "y": 1160,
+        "wires": [
+            [
+                "5a4b53f91e9976c8"
+            ]
+        ]
+    },
+    {
+        "id": "3334e1958c2eec84",
+        "type": "function",
+        "z": "a973116907fa6ae1",
+        "name": "Calc Servo 6",
+        "func": "// ذخیره مقدار فعلی در متغیر گلوبال\nvar current = context.get('s6') || 70;\nvar change = msg.payload;\n\ncurrent = current + change;\n\n// محدودیت بازه\nif(current > 120) current = 120;\nif(current < 30) current = 30;\n\ncontext.set('s6', current);\n\nmsg.payload = current;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 1120,
+        "wires": [
+            [
+                "c0522a54ac09ac60",
+                "5a4b53f91e9976c8"
+            ]
+        ]
+    },
+    {
+        "id": "5a4b53f91e9976c8",
+        "type": "function",
+        "z": "a973116907fa6ae1",
+        "name": "Format Command",
+        "func": "// msg.topic باید شناسه سروو باشد (مثلا 0)\n// msg.payload زاویه جدید است\n\nvar id = 6;\nvar angle = msg.payload;\n\n// ساخت فرمت ID:ANGLE\nmsg.payload = id + \":\" + angle + \"\\n\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 1100,
+        "wires": [
+            [
+                "tcp_out_node"
+            ]
+        ]
+    },
+    {
+        "id": "a6997529184bf328",
+        "type": "ui_button",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "group": "d46c10aa3b295346",
+        "order": 17,
+        "width": "2",
+        "height": 1,
+        "passthru": false,
+        "label": "Increase",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "green",
+        "className": "",
+        "icon": "fa-plus",
+        "payload": "5",
+        "payloadType": "num",
+        "topic": "0",
+        "topicType": "str",
+        "x": 200,
+        "y": 1120,
+        "wires": [
+            [
+                "3334e1958c2eec84"
+            ]
+        ]
+    },
+    {
+        "id": "0b2204a32c7f7b8b",
+        "type": "ui_button",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "group": "d46c10aa3b295346",
+        "order": 18,
+        "width": "2",
+        "height": 1,
+        "passthru": false,
+        "label": "Decrease",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "red",
+        "className": "",
+        "icon": "fa-minus",
+        "payload": "-5",
+        "payloadType": "num",
+        "topic": "0",
+        "topicType": "str",
+        "x": 190,
+        "y": 1200,
+        "wires": [
+            [
+                "3334e1958c2eec84"
+            ]
+        ]
+    },
+    {
+        "id": "7c24765c9a043dc4",
+        "type": "ui_text_input",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "label": "Servo 7",
+        "tooltip": "",
+        "group": "d46c10aa3b295346",
+        "order": 19,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "7",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 440,
+        "y": 1300,
+        "wires": [
+            [
+                "5dd8ee934fb52404"
+            ]
+        ]
+    },
+    {
+        "id": "b1551b68423850ac",
+        "type": "function",
+        "z": "a973116907fa6ae1",
+        "name": "Calc Servo 7",
+        "func": "// ذخیره مقدار فعلی در متغیر گلوبال\nvar current = context.get('s7') || 90;\nvar change = msg.payload;\n\ncurrent = current + change;\n\n// محدودیت بازه\nif(current > 140) current = 140;\nif(current < 20) current = 20;\n\ncontext.set('s7', current);\n\nmsg.payload = current;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 1260,
+        "wires": [
+            [
+                "7c24765c9a043dc4",
+                "5dd8ee934fb52404"
+            ]
+        ]
+    },
+    {
+        "id": "5dd8ee934fb52404",
+        "type": "function",
+        "z": "a973116907fa6ae1",
+        "name": "Format Command",
+        "func": "// msg.topic باید شناسه سروو باشد (مثلا 0)\n// msg.payload زاویه جدید است\n\nvar id = 7;\nvar angle = msg.payload;\n\n// ساخت فرمت ID:ANGLE\nmsg.payload = id + \":\" + angle + \"\\n\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 1220,
+        "wires": [
+            [
+                "tcp_out_node"
+            ]
+        ]
+    },
+    {
+        "id": "dbcaf20a7e758dda",
+        "type": "ui_button",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "group": "d46c10aa3b295346",
+        "order": 20,
+        "width": "2",
+        "height": 1,
+        "passthru": false,
+        "label": "Increase",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "green",
+        "className": "",
+        "icon": "fa-plus",
+        "payload": "5",
+        "payloadType": "num",
+        "topic": "0",
+        "topicType": "str",
+        "x": 180,
+        "y": 1280,
+        "wires": [
+            [
+                "b1551b68423850ac"
+            ]
+        ]
+    },
+    {
+        "id": "886224479f8bca01",
+        "type": "ui_button",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "group": "d46c10aa3b295346",
+        "order": 21,
+        "width": "2",
+        "height": 1,
+        "passthru": false,
+        "label": "Decrease",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "red",
+        "className": "",
+        "icon": "fa-minus",
+        "payload": "-5",
+        "payloadType": "num",
+        "topic": "0",
+        "topicType": "str",
+        "x": 180,
+        "y": 1320,
+        "wires": [
+            [
+                "b1551b68423850ac"
+            ]
+        ]
+    },
+    {
+        "id": "34d896724090fe17",
+        "type": "ui_text_input",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "label": "Servo 8",
+        "tooltip": "",
+        "group": "d46c10aa3b295346",
+        "order": 22,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "8",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 460,
+        "y": 1500,
+        "wires": [
+            [
+                "f74e13fbe31e0fc0"
+            ]
+        ]
+    },
+    {
+        "id": "2a7553da04920994",
+        "type": "function",
+        "z": "a973116907fa6ae1",
+        "name": "Calc Servo 8",
+        "func": "// ذخیره مقدار فعلی در متغیر گلوبال\nvar current = context.get('s8') || 190;\nvar change = msg.payload;\n\ncurrent = current + change;\n\n// محدودیت بازه\nif(current > 205) current = 205;\nif(current < 125) current = 125;\n\ncontext.set('s8', current);\n\nmsg.payload = current;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 1440,
+        "wires": [
+            [
+                "34d896724090fe17",
+                "f74e13fbe31e0fc0"
+            ]
+        ]
+    },
+    {
+        "id": "f74e13fbe31e0fc0",
+        "type": "function",
+        "z": "a973116907fa6ae1",
+        "name": "Format Command",
+        "func": "// msg.topic باید شناسه سروو باشد (مثلا 0)\n// msg.payload زاویه جدید است\n\nvar id = 8;\nvar angle = msg.payload;\n\n// ساخت فرمت ID:ANGLE\nmsg.payload = id + \":\" + angle + \"\\n\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 1420,
+        "wires": [
+            [
+                "tcp_out_node"
+            ]
+        ]
+    },
+    {
+        "id": "1fbab4a05e9d3aae",
+        "type": "ui_button",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "group": "d46c10aa3b295346",
+        "order": 23,
+        "width": "2",
+        "height": 1,
+        "passthru": false,
+        "label": "Increase",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "green",
+        "className": "",
+        "icon": "fa-plus",
+        "payload": "5",
+        "payloadType": "num",
+        "topic": "0",
+        "topicType": "str",
+        "x": 200,
+        "y": 1480,
+        "wires": [
+            [
+                "2a7553da04920994"
+            ]
+        ]
+    },
+    {
+        "id": "7e574d695d25855a",
+        "type": "ui_button",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "group": "d46c10aa3b295346",
+        "order": 24,
+        "width": "2",
+        "height": 1,
+        "passthru": false,
+        "label": "Decrease",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "red",
+        "className": "",
+        "icon": "fa-minus",
+        "payload": "-5",
+        "payloadType": "num",
+        "topic": "0",
+        "topicType": "str",
+        "x": 200,
+        "y": 1520,
+        "wires": [
+            [
+                "2a7553da04920994"
+            ]
+        ]
+    },
+    {
+        "id": "070cb0015e516ef1",
+        "type": "ui_text_input",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "label": "Servo 9",
+        "tooltip": "",
+        "group": "d46c10aa3b295346",
+        "order": 25,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "9",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 460,
+        "y": 1640,
+        "wires": [
+            [
+                "f9b95bf45fd4697a"
+            ]
+        ]
+    },
+    {
+        "id": "fb7e1336530873ed",
+        "type": "function",
+        "z": "a973116907fa6ae1",
+        "name": "Calc Servo 9",
+        "func": "// ذخیره مقدار فعلی در متغیر گلوبال\nvar current = context.get('s9') || 145;\nvar change = msg.payload;\n\ncurrent = current + change;\n\n// محدودیت بازه\nif(current > 205) current = 205;\nif(current < 65) current = 65;\n\ncontext.set('s9', current);\n\nmsg.payload = current;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 1580,
+        "wires": [
+            [
+                "070cb0015e516ef1",
+                "f9b95bf45fd4697a"
+            ]
+        ]
+    },
+    {
+        "id": "f9b95bf45fd4697a",
+        "type": "function",
+        "z": "a973116907fa6ae1",
+        "name": "Format Command",
+        "func": "// msg.topic باید شناسه سروو باشد (مثلا 0)\n// msg.payload زاویه جدید است\n\nvar id = 9;\nvar angle = msg.payload;\n\n// ساخت فرمت ID:ANGLE\nmsg.payload = id + \":\" + angle + \"\\n\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 1560,
+        "wires": [
+            [
+                "tcp_out_node"
+            ]
+        ]
+    },
+    {
+        "id": "c92664d0af0ba2ff",
+        "type": "ui_button",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "group": "d46c10aa3b295346",
+        "order": 26,
+        "width": "2",
+        "height": 1,
+        "passthru": false,
+        "label": "Increase",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "green",
+        "className": "",
+        "icon": "fa-plus",
+        "payload": "5",
+        "payloadType": "num",
+        "topic": "0",
+        "topicType": "str",
+        "x": 200,
+        "y": 1640,
+        "wires": [
+            [
+                "fb7e1336530873ed"
+            ]
+        ]
+    },
+    {
+        "id": "3ba49dc54e437ac1",
+        "type": "ui_button",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "group": "d46c10aa3b295346",
+        "order": 27,
+        "width": "2",
+        "height": 1,
+        "passthru": false,
+        "label": "Decrease",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "red",
+        "className": "",
+        "icon": "fa-minus",
+        "payload": "-5",
+        "payloadType": "num",
+        "topic": "0",
+        "topicType": "str",
+        "x": 200,
+        "y": 1680,
+        "wires": [
+            [
+                "fb7e1336530873ed"
+            ]
+        ]
+    },
+    {
+        "id": "612c968ed62db2f5",
+        "type": "ui_text_input",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "label": "Servo 10",
+        "tooltip": "",
+        "group": "d46c10aa3b295346",
+        "order": 28,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "10",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 460,
+        "y": 1840,
+        "wires": [
+            [
+                "97c3a8335683fe41"
+            ]
+        ]
+    },
+    {
+        "id": "6ab28448a942b80f",
+        "type": "function",
+        "z": "a973116907fa6ae1",
+        "name": "Calc Servo 10",
+        "func": "// ذخیره مقدار فعلی در متغیر گلوبال\nvar current = context.get('s10') || 230;\nvar change = msg.payload;\n\ncurrent = current + change;\n\n// محدودیت بازه\nif(current > 254) current = 254;\nif(current < 0) current = 0;\n\ncontext.set('s10', current);\n\nmsg.payload = current;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 1780,
+        "wires": [
+            [
+                "612c968ed62db2f5",
+                "97c3a8335683fe41"
+            ]
+        ]
+    },
+    {
+        "id": "97c3a8335683fe41",
+        "type": "function",
+        "z": "a973116907fa6ae1",
+        "name": "Format Command",
+        "func": "// msg.topic باید شناسه سروو باشد (مثلا 0)\n// msg.payload زاویه جدید است\n\nvar id = 10;\nvar angle = msg.payload;\n\n// ساخت فرمت ID:ANGLE\nmsg.payload = id + \":\" + angle + \"\\n\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 1760,
+        "wires": [
+            [
+                "tcp_out_node"
+            ]
+        ]
+    },
+    {
+        "id": "04b228eebfdffd8b",
+        "type": "ui_button",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "group": "d46c10aa3b295346",
+        "order": 29,
+        "width": "2",
+        "height": 1,
+        "passthru": false,
+        "label": "Increase",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "green",
+        "className": "",
+        "icon": "fa-plus",
+        "payload": "5",
+        "payloadType": "num",
+        "topic": "0",
+        "topicType": "str",
+        "x": 200,
+        "y": 1840,
+        "wires": [
+            [
+                "6ab28448a942b80f"
+            ]
+        ]
+    },
+    {
+        "id": "79010fe87b25f0d2",
+        "type": "ui_button",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "group": "d46c10aa3b295346",
+        "order": 30,
+        "width": "2",
+        "height": 1,
+        "passthru": false,
+        "label": "Decrease",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "red",
+        "className": "",
+        "icon": "fa-minus",
+        "payload": "-5",
+        "payloadType": "num",
+        "topic": "0",
+        "topicType": "str",
+        "x": 200,
+        "y": 1880,
+        "wires": [
+            [
+                "6ab28448a942b80f"
+            ]
+        ]
+    },
+    {
+        "id": "f9d2a3d2db52374d",
+        "type": "ui_text_input",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "label": "Servo 11",
+        "tooltip": "",
+        "group": "d46c10aa3b295346",
+        "order": 31,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "11",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 460,
+        "y": 2000,
+        "wires": [
+            [
+                "45955d14d1c6a641"
+            ]
+        ]
+    },
+    {
+        "id": "dc3b3b6839f82f2d",
+        "type": "function",
+        "z": "a973116907fa6ae1",
+        "name": "Calc Servo 11",
+        "func": "// ذخیره مقدار فعلی در متغیر گلوبال\nvar current = context.get('s11') || 200;\nvar change = msg.payload;\n\ncurrent = current + change;\n\n// محدودیت بازه\nif(current > 220) current = 220;\nif(current < 40) current = 40;\n\ncontext.set('s11', current);\n\nmsg.payload = current;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 1940,
+        "wires": [
+            [
+                "f9d2a3d2db52374d",
+                "45955d14d1c6a641"
+            ]
+        ]
+    },
+    {
+        "id": "45955d14d1c6a641",
+        "type": "function",
+        "z": "a973116907fa6ae1",
+        "name": "Format Command",
+        "func": "// msg.topic باید شناسه سروو باشد (مثلا 0)\n// msg.payload زاویه جدید است\n\nvar id = 11;\nvar angle = msg.payload;\n\n// ساخت فرمت ID:ANGLE\nmsg.payload = id + \":\" + angle + \"\\n\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 1920,
+        "wires": [
+            [
+                "tcp_out_node"
+            ]
+        ]
+    },
+    {
+        "id": "e48bc2d1ca93f439",
+        "type": "ui_button",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "group": "d46c10aa3b295346",
+        "order": 32,
+        "width": "2",
+        "height": 1,
+        "passthru": false,
+        "label": "Increase",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "green",
+        "className": "",
+        "icon": "fa-plus",
+        "payload": "5",
+        "payloadType": "num",
+        "topic": "0",
+        "topicType": "str",
+        "x": 200,
+        "y": 2000,
+        "wires": [
+            [
+                "dc3b3b6839f82f2d"
+            ]
+        ]
+    },
+    {
+        "id": "0e58506c2d1be566",
+        "type": "ui_button",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "group": "d46c10aa3b295346",
+        "order": 33,
+        "width": "2",
+        "height": 1,
+        "passthru": false,
+        "label": "Decrease",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "red",
+        "className": "",
+        "icon": "fa-minus",
+        "payload": "-5",
+        "payloadType": "num",
+        "topic": "0",
+        "topicType": "str",
+        "x": 200,
+        "y": 2040,
+        "wires": [
+            [
+                "dc3b3b6839f82f2d"
+            ]
+        ]
+    },
+    {
+        "id": "25553e05f94f767b",
+        "type": "ui_text_input",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "label": "Servo 12",
+        "tooltip": "",
+        "group": "d46c10aa3b295346",
+        "order": 34,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "12",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 460,
+        "y": 2160,
+        "wires": [
+            [
+                "71e7873c68834934"
+            ]
+        ]
+    },
+    {
+        "id": "55525cab31bb82d3",
+        "type": "function",
+        "z": "a973116907fa6ae1",
+        "name": "Calc Servo 12",
+        "func": "// ذخیره مقدار فعلی در متغیر گلوبال\nvar current = context.get('s12') || 195;\nvar change = msg.payload;\n\ncurrent = current + change;\n\n// محدودیت بازه\nif(current > 254) current = 254;\nif(current < 0) current = 0;\n\ncontext.set('s12', current);\n\nmsg.payload = current;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 2100,
+        "wires": [
+            [
+                "25553e05f94f767b",
+                "71e7873c68834934"
+            ]
+        ]
+    },
+    {
+        "id": "71e7873c68834934",
+        "type": "function",
+        "z": "a973116907fa6ae1",
+        "name": "Format Command",
+        "func": "// msg.topic باید شناسه سروو باشد (مثلا 0)\n// msg.payload زاویه جدید است\n\nvar id = 12\nvar angle = msg.payload;\n\n// ساخت فرمت ID:ANGLE\nmsg.payload = id + \":\" + angle + \"\\n\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 2080,
+        "wires": [
+            [
+                "tcp_out_node"
+            ]
+        ]
+    },
+    {
+        "id": "70f7f819161dfe4f",
+        "type": "ui_button",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "group": "d46c10aa3b295346",
+        "order": 35,
+        "width": "2",
+        "height": 1,
+        "passthru": false,
+        "label": "Increase",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "green",
+        "className": "",
+        "icon": "fa-plus",
+        "payload": "5",
+        "payloadType": "num",
+        "topic": "0",
+        "topicType": "str",
+        "x": 200,
+        "y": 2160,
+        "wires": [
+            [
+                "55525cab31bb82d3"
+            ]
+        ]
+    },
+    {
+        "id": "90b6ef6b9036f4cb",
+        "type": "ui_button",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "group": "d46c10aa3b295346",
+        "order": 36,
+        "width": "2",
+        "height": 1,
+        "passthru": false,
+        "label": "Decrease",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "red",
+        "className": "",
+        "icon": "fa-minus",
+        "payload": "-5",
+        "payloadType": "num",
+        "topic": "0",
+        "topicType": "str",
+        "x": 200,
+        "y": 2200,
+        "wires": [
+            [
+                "55525cab31bb82d3"
+            ]
+        ]
+    },
+    {
+        "id": "01bc11eb228f9a19",
+        "type": "ui_text_input",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "label": "Servo 13",
+        "tooltip": "",
+        "group": "d46c10aa3b295346",
+        "order": 37,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "13",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 460,
+        "y": 2320,
+        "wires": [
+            [
+                "4cbe30515b0d65d7"
+            ]
+        ]
+    },
+    {
+        "id": "3970177928b9aa0c",
+        "type": "function",
+        "z": "a973116907fa6ae1",
+        "name": "Calc Servo 13",
+        "func": "// ذخیره مقدار فعلی در متغیر گلوبال\nvar current = context.get('s13') || 170;\nvar change = msg.payload;\n\ncurrent = current + change;\n\n// محدودیت بازه\nif(current > 254) current = 254;\nif(current < 0) current = 0;\n\ncontext.set('s13', current);\n\nmsg.payload = current;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 2260,
+        "wires": [
+            [
+                "01bc11eb228f9a19",
+                "4cbe30515b0d65d7"
+            ]
+        ]
+    },
+    {
+        "id": "4cbe30515b0d65d7",
+        "type": "function",
+        "z": "a973116907fa6ae1",
+        "name": "Format Command",
+        "func": "// msg.topic باید شناسه سروو باشد (مثلا 0)\n// msg.payload زاویه جدید است\n\nvar id = 13;\nvar angle = msg.payload;\n\n// ساخت فرمت ID:ANGLE\nmsg.payload = id + \":\" + angle + \"\\n\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 2240,
+        "wires": [
+            [
+                "tcp_out_node"
+            ]
+        ]
+    },
+    {
+        "id": "578ce9ddd5bf29fd",
+        "type": "ui_button",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "group": "d46c10aa3b295346",
+        "order": 38,
+        "width": "2",
+        "height": 1,
+        "passthru": false,
+        "label": "Increase",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "green",
+        "className": "",
+        "icon": "fa-plus",
+        "payload": "5",
+        "payloadType": "num",
+        "topic": "0",
+        "topicType": "str",
+        "x": 200,
+        "y": 2320,
+        "wires": [
+            [
+                "3970177928b9aa0c"
+            ]
+        ]
+    },
+    {
+        "id": "f0bd83d7db6bf402",
+        "type": "ui_button",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "group": "d46c10aa3b295346",
+        "order": 39,
+        "width": "2",
+        "height": 1,
+        "passthru": false,
+        "label": "Decrease",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "red",
+        "className": "",
+        "icon": "fa-minus",
+        "payload": "-5",
+        "payloadType": "num",
+        "topic": "0",
+        "topicType": "str",
+        "x": 200,
+        "y": 2360,
+        "wires": [
+            [
+                "3970177928b9aa0c"
+            ]
+        ]
+    },
+    {
+        "id": "0735e04faf3935ca",
+        "type": "ui_text_input",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "label": "Servo 14",
+        "tooltip": "",
+        "group": "d46c10aa3b295346",
+        "order": 40,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "14",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 460,
+        "y": 2480,
+        "wires": [
+            [
+                "acfad3f72246ef50"
+            ]
+        ]
+    },
+    {
+        "id": "edb8c3f8e16fdad9",
+        "type": "function",
+        "z": "a973116907fa6ae1",
+        "name": "Calc Servo 14",
+        "func": "// ذخیره مقدار فعلی در متغیر گلوبال\nvar current = context.get('s14') || 200;\nvar change = msg.payload;\n\ncurrent = current + change;\n\n// محدودیت بازه\nif(current > 220) current = 220;\nif(current < 40) current = 40;\n\ncontext.set('s14', current);\n\nmsg.payload = current;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 2420,
+        "wires": [
+            [
+                "0735e04faf3935ca",
+                "acfad3f72246ef50"
+            ]
+        ]
+    },
+    {
+        "id": "acfad3f72246ef50",
+        "type": "function",
+        "z": "a973116907fa6ae1",
+        "name": "Format Command",
+        "func": "// msg.topic باید شناسه سروو باشد (مثلا 0)\n// msg.payload زاویه جدید است\n\nvar id = 14;\nvar angle = msg.payload;\n\n// ساخت فرمت ID:ANGLE\nmsg.payload = id + \":\" + angle + \"\\n\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 2400,
+        "wires": [
+            [
+                "tcp_out_node"
+            ]
+        ]
+    },
+    {
+        "id": "1e4ab52d4e37fe65",
+        "type": "ui_button",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "group": "d46c10aa3b295346",
+        "order": 41,
+        "width": "2",
+        "height": 1,
+        "passthru": false,
+        "label": "Increase",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "green",
+        "className": "",
+        "icon": "fa-plus",
+        "payload": "5",
+        "payloadType": "num",
+        "topic": "0",
+        "topicType": "str",
+        "x": 200,
+        "y": 2480,
+        "wires": [
+            [
+                "edb8c3f8e16fdad9"
+            ]
+        ]
+    },
+    {
+        "id": "0d3a847df3cca379",
+        "type": "ui_button",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "group": "d46c10aa3b295346",
+        "order": 42,
+        "width": "2",
+        "height": 1,
+        "passthru": false,
+        "label": "Decrease",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "red",
+        "className": "",
+        "icon": "fa-minus",
+        "payload": "-5",
+        "payloadType": "num",
+        "topic": "0",
+        "topicType": "str",
+        "x": 200,
+        "y": 2520,
+        "wires": [
+            [
+                "edb8c3f8e16fdad9"
+            ]
+        ]
+    },
+    {
+        "id": "7e94d93748a102d8",
+        "type": "ui_button",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "group": "e20dceaedef63c60",
+        "order": 0,
+        "width": "8",
+        "height": "2",
+        "passthru": false,
+        "label": "Stand Up",
+        "tooltip": "",
+        "color": "#000",
+        "bgcolor": "aqua",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 460,
+        "y": 2700,
+        "wires": [
+            [
+                "b9a5e711bc621e27"
+            ]
+        ]
+    },
+    {
+        "id": "b9a5e711bc621e27",
+        "type": "function",
+        "z": "a973116907fa6ae1",
+        "name": "function 1",
+        "func": "// مقادیر دقیق ایستادن که در کد آردوینو هم بود\nvar standPose = [\n    123, 190, 165, 45, \n    100, 132, 70, 85, \n    205, 140, 144, 170, \n    179, 195, 200, 100\n];\n\nmsg.payload = \"M:\" + standPose.join(\",\") + \"\\n\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 2540,
+        "wires": [
+            [
+                "tcp_out_node"
+            ]
+        ]
+    },
+    {
+        "id": "fe83595bf5c9bcb1",
+        "type": "ui_button",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "group": "e20dceaedef63c60",
+        "order": 0,
+        "width": "8",
+        "height": "2",
+        "passthru": false,
+        "label": "Sit Down",
+        "tooltip": "",
+        "color": "#000",
+        "bgcolor": "#13f295",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 500,
+        "y": 2820,
+        "wires": [
+            [
+                "582c5f1656937faf"
+            ]
+        ]
+    },
+    {
+        "id": "582c5f1656937faf",
+        "type": "function",
+        "z": "a973116907fa6ae1",
+        "name": "function 2",
+        "func": "// مقادیر دقیق ایستادن که در کد آردوینو هم بود\nvar servoPose = [\n    118, 190, 254, 120, \n    105, 117, 35, 20, \n    125, 140, 155, 135, \n    235, 235, 120, 100\n];\n\nmsg.payload = \"M:\" + servoPose.join(\",\") + \"\\n\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 2700,
+        "wires": [
+            [
+                "tcp_out_node"
+            ]
+        ]
+    },
+    {
         "id": "b6dd150a039e6b03",
         "type": "function",
         "z": "a973116907fa6ae1",
@@ -18,5 +2195,42 @@
                 "tcp_out_node"
             ]
         ]
+    },
+    {
+        "id": "136573517a99289e",
+        "type": "ui_button",
+        "z": "a973116907fa6ae1",
+        "name": "",
+        "group": "e20dceaedef63c60",
+        "order": 0,
+        "width": "8",
+        "height": "2",
+        "passthru": false,
+        "label": "Walking",
+        "tooltip": "",
+        "color": "#000",
+        "bgcolor": "#36d7f7",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 480,
+        "y": 2980,
+        "wires": [
+            [
+                "b6dd150a039e6b03"
+            ]
+        ]
+    },
+    {
+        "id": "5e5313a21bd80e42",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6",
+            "node-red-contrib-modbus": "5.45.2"
+        }
     }
 ]
