@@ -75,8 +75,6 @@ void loop() {
   // 2. بررسی اتصال کلاینت جدید
   // ------------------------------------------
   if (wifiServer.hasClient()) {
-    // اگر کلاینت قبلی متصل بود و هنوز زنده است، آن را قطع کن تا کلاینت جدید وصل شود
-    // (یا اگر نود-رد کانکشن جدید باز کرد)
     if (globalClient && globalClient.connected()) {
       globalClient.stop();
     }
@@ -89,9 +87,8 @@ void loop() {
   // ------------------------------------------
   if (globalClient && globalClient.connected()) {
     if (globalClient.available() > 0) {
-      // خواندن تا رسیدن به خط جدید
       String req = globalClient.readStringUntil('\n');
-      req.trim(); // حذف فضاها و اینترهای اضافی
+      req.trim();
       
       if(req.length() > 0) {
          processTCPCommand(req);
@@ -102,9 +99,15 @@ void loop() {
 
 // ================== پردازش دستورات TCP ==================
 void processTCPCommand(String data) {
-  // فرمت مورد انتظار: "5:120"
+  // اگر با "M:" شروع شود یعنی آرایه کامل است
+  // فرمت: M:123,190,165,45,100,132,70,85,205,140,144,170,179,195,200,100
+  if (data.startsWith("M:")) {
+    processMultiCommand(data.substring(2)); // ارسال رشته بعد از M:
+    return;
+  }
+
+  // اگر فرمت تکی باشد: "5:120"
   int separatorIndex = data.indexOf(':');
-  
   if (separatorIndex > 0) {
     String idStr = data.substring(0, separatorIndex);
     String angleStr = data.substring(separatorIndex + 1);
@@ -112,14 +115,58 @@ void processTCPCommand(String data) {
     int id = idStr.toInt();
     int angle = angleStr.toInt();
     
-    // اعتبارسنجی
     if (id >= 0 && id <= 15 && angle >= 0 && angle <= 254) {
-      // فقط در صورتی که تغییر کرده ارسال کن (برای جلوگیری از ترافیک اضافی)
       if (servoPos[id] != angle) {
         moveServoAbsolute(id, angle);
-        // لاگ نزنیم تا سرعت بالا برود، فقط اجرا کنیم
       }
     }
+  }
+}
+
+// ================== تابع جدید: پردازش آرایه کامل سرووها ==================
+void processMultiCommand(String data) {
+  Serial.println("Received Full Pose Command...");
+  
+  // آرایه موقت برای ذخیره مقادیر جدید
+  int newPositions[16];
+  int count = 0;
+  int lastIndex = 0;
+
+  // جدا کردن اعداد با ویرگول (Parsing CSV)
+  for (int i = 0; i < data.length(); i++) {
+    if (data.charAt(i) == ',') {
+      String valStr = data.substring(lastIndex, i);
+      newPositions[count] = valStr.toInt();
+      count++;
+      lastIndex = i + 1;
+      if (count >= 16) break;
+    }
+  }
+  // گرفتن آخرین عدد (چون بعد از آن ویرگول نیست)
+  if (count < 16) {
+    String valStr = data.substring(lastIndex);
+    newPositions[count] = valStr.toInt();
+    count++;
+  }
+
+  // اگر دقیقا 16 عدد دریافت شد، حرکت را اجرا کن
+  if (count == 16) {
+    for (int i = 0; i < 16; i++) {
+      int angle = newPositions[i];
+      // محدودیت بازه
+      if (angle > 254) angle = 254;
+      if (angle < 0) angle = 0;
+      
+      // حرکت دادن سروو
+      moveServoAbsolute(i, angle);
+      
+      // تاخیر خیلی کوتاه بین ارسال فرمان به هر موتور (اختیاری ولی برای پایداری خوبه)
+      delay(5); 
+    }
+    Serial.println("✓ Full Pose Executed");
+  } else {
+    Serial.print("❌ Error: Expected 16 values, got ");
+    Serial.println(count);
   }
 }
 
@@ -163,11 +210,13 @@ void printHelp() {
   Serial.print("🌐 IP Address: ");
   Serial.println(WiFi.localIP()); 
   Serial.println("──────────────────────");
-  Serial.println(" help / h      → Show this menu & IP");
+  Serial.println(" help / h      → Show this menu");
   Serial.println(" stand / s     → Return to stand position");
   Serial.println(" [ID] +[value] → Increase servo by value");
   Serial.println("──────────────────────");
-  Serial.println("Node-RED Format: 'ID:ANGLE\\n'");
+  Serial.println("Node-RED Formats:");
+  Serial.println(" 1. Single: 'ID:ANGLE\\n' (e.g., 5:120)");
+  Serial.println(" 2. Full:   'M:p0,p1,...,p15\\n' (e.g., M:120,130,...)");
   Serial.println("──────────────────────\n");
 }
 
@@ -175,7 +224,6 @@ void printHelp() {
 void moveServoAbsolute(int id, int angle) {
   servoPos[id] = angle;
   MovePosition(id, 4, angle);
-  // تاخیر بسیار کوتاه برای اینکه ربات هنگ نکند
   delayMicroseconds(200); 
 }
 
@@ -196,6 +244,8 @@ void configurePID() {
 
 void standup() {
   Serial.println("Moving to Stand Position...");
+  // مقادیر استند آپ را به صورت دستی هم میتونی از طریق همین تابع جدید بفرستی
+  // اما اینجا هنوز hardcode نگهش داشتیم
   MovePosition(0, 4, 123); MovePosition(2, 4, 165); MovePosition(7, 4, 85); delay(50);
   MovePosition(6, 4, 70); MovePosition(1, 4, 190); MovePosition(3, 4, 45);
   MovePosition(4, 4, 100); MovePosition(5, 4, 132); MovePosition(8, 4, 205);

@@ -1,0 +1,22 @@
+[
+    {
+        "id": "b6dd150a039e6b03",
+        "type": "function",
+        "z": "a973116907fa6ae1",
+        "name": "function 3",
+        "func": "// تعریف آرایه‌ها\nvar standPose = [\n    123, 170, 165, 45, \n    100, 132, 70, 85, \n    205, 140, 170, 195, \n    130, 130, 190, 100\n];\n\nvar stepPose = [\n    123, 190, 165, 45, \n    100, 132, 115, 55, \n    205, 140, 254, 170, \n    179, 225, 200, 100\n];\n\n// دریافت وضعیت قبلی از حافظه (اگر بار اوله، فرض می‌کنیم آخرین بار Step بوده تا الان Stand بفرسته)\nvar lastState = context.get('lastPose') || 'step';\n\n// متغیر برای ذخیره دستور نهایی\nvar command = \"\";\n\nif (lastState === 'step') {\n    // --- نوبت ارسال STAND است ---\n    command = \"M:\" + standPose.join(\",\") + \"\\n\";\n    \n    // ذخیره وضعیت جدید برای دفعه بعد\n    context.set('lastPose', 'stand');\n    \n    // نمایش وضعیت زیر نود (برای قشنگی)\n    node.status({fill:\"blue\", shape:\"dot\", text:\"Sent: STAND\"});\n} \nelse {\n    // --- نوبت ارسال STEP است ---\n    command = \"M:\" + stepPose.join(\",\") + \"\\n\";\n    \n    // ذخیره وضعیت جدید برای دفعه بعد\n    context.set('lastPose', 'step');\n    \n    // نمایش وضعیت زیر نود\n    node.status({fill:\"green\", shape:\"dot\", text:\"Sent: STEP\"});\n}\n\nmsg.payload = command;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 2840,
+        "wires": [
+            [
+                "tcp_out_node"
+            ]
+        ]
+    }
+]
